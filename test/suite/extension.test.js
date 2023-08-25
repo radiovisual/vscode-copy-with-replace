@@ -3,29 +3,31 @@ const vscode = require("vscode");
 const sinon = require("sinon");
 const { afterEach, beforeEach, describe, it } = require("mocha");
 
-// Mock the configuration to return custom replacements
-const myConfig = {
-  get: function (key) {
-    if (key === "replacements") {
-      return [
-        {
-          search: "original-text",
-          replace: "replaced-text",
-        },
-      ];
-    }
-  },
-};
-
-sinon.stub(vscode.workspace, "getConfiguration").returns(myConfig);
-
 describe("Copy With Replace Extension Tests", () => {
+  let stub;
+
   beforeEach(async () => {
     await vscode.commands.executeCommand("workbench.action.closeAllEditors");
+    await vscode.env.clipboard.writeText("");
+
+    // Move the stubbing into beforeEach
+    stub = sinon.stub(vscode.workspace, "getConfiguration").returns({
+      get: function (key) {
+        if (key === "replacements") {
+          return [
+            {
+              search: "original-text",
+              replace: "replaced-text",
+            },
+          ];
+        }
+      },
+    });
   });
 
   afterEach(async () => {
-    await vscode.commands.executeCommand("workbench.action.closeAllEditors");
+    // Restore the stub to original state
+    stub.restore();
   });
 
   it("should apply replacements on selected text", async function () {
@@ -46,6 +48,9 @@ describe("Copy With Replace Extension Tests", () => {
     const startPosition = new vscode.Position(0, 0);
     const endPosition = new vscode.Position(0, document.lineAt(0).text.length);
     editor.selection = new vscode.Selection(startPosition, endPosition);
+
+    // Execute the actual command for copying with replacement
+    await vscode.commands.executeCommand("extension.copyWithReplace");
 
     // Wait for a while before pasting the content
     await new Promise((resolve) => setTimeout(resolve, 100));

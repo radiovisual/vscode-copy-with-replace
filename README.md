@@ -1,7 +1,7 @@
-<div style="padding:25px;text-align:center;">
-<img style="display:block;margin:0 auto;padding:10px" src="images/icon.png" width="200" height="auto" />
-<h2>Copy with Replace</h2>
-<p>A VS Code Extension to replace specific text snippets before copying to the clipboard.</p>
+<div align="center" style="padding:25px;text-align:center;">
+  <img style="display:block;margin:0 auto;padding:10px" src="images/icon.png" width="200" height="auto" />
+  <h2>Copy with Replace</h2>
+  <p>A VS Code Extension to replace specific text snippets before copying to the clipboard.</p>
 </div>
 
 ## Features

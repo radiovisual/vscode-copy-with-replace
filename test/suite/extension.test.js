@@ -28,7 +28,7 @@ describe("Copy With Replace Extension Tests", () => {
     await vscode.commands.executeCommand("workbench.action.closeAllEditors");
   });
 
-  it("Should apply replacements on selected text", async function () {
+  it("should apply replacements on selected text", async function () {
     this.timeout(10000); // Set the timeout for this test to 10000ms
 
     const expectedResult = `import { function } from '@replaced-text/function';`;
@@ -66,7 +66,7 @@ describe("Copy With Replace Extension Tests", () => {
     );
   });
 
-  it("Should prompt the user to select text when nothing is selected", async () => {
+  it("should prompt the user to select text when nothing is selected", async () => {
     const testDocument = await vscode.workspace.openTextDocument({
       content: `import { function } from '@foo/function';`,
     });

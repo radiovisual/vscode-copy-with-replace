@@ -1,6 +1,8 @@
-# VSCode Copy with Replace
-
-This is a simple Visual Studio Code extension that allows you to copy the contents of the open file in VSCode to the clipboard, but find and replace specified strings before the contents get copied to the clipboard. The strings to be replaced can be easily configured.
+<div style="padding:25px;text-align:center;">
+<img style="display:block;margin:0 auto;padding:10px" src="images/icon.png" width="200" height="auto" />
+<h2>Copy with Replace</h2>
+<p>A VS Code Extension to replace specific text snippets before copying to the clipboard.</p>
+</div>
 
 ## Features
 
@@ -14,6 +16,7 @@ The "copy-with-replace" extension provides a single command to copy the contents
 This extension contributes the following settings:
 
 `copyWithReplace.replacements`: An array of objects containing search and replace properties for string replacements. For example:
+
 ```json
 {
   "copyWithReplace.replacements": [
@@ -52,10 +55,6 @@ After reviewing your pull request, the maintainers may provide feedback and requ
 
 Thank you for your interest in contributing to the "copy-with-replace" extension!
 
-## Known Issues
+---
 
-There are no known issues at this time.
-
-## Requirements
-
-There are no additional requirements or dependencies for this extension.
+:rainbow: :unicorn:

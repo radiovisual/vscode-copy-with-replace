@@ -6,20 +6,20 @@
 
 <br />
 
-## Features
+## Keyboard Shortcuts
 
-The "copy-with-replace" extension provides a single command to copy the contents of the currently opened file to the clipboard while replacing the specified strings.
+The "copy-with-replace" extension provides a single command to replace your specified strings in the currently-selected text before copying the selected text to the clipboard.
 
 - **For use on Windows & Linux**: <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd>
 - **For use on macOS**: <kbd>CMD</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd>
 
-## Installation
+### Copy the entire source code file
 
-You can either install directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=radiovisual.vscode-copy-with-replace), or search _`"Copy with Replace"`_ in the VSCode extensions panel, or run the following code in your terminal:
+To run `Copy with Replace` on the entire source code file, simply Select the entire contents of the file, and then run copy your text with the right Keyboard shortcut for your operating system (see [Keyboard Shortcuts](#keyboard-shortcuts) above).
 
-```
-$ code --install-extension radiovisual.vscode-copy-with-replace
-```
+### Copy only selected text
+
+If you only want to run "Copy with Replace" on selected text, be sure to have pre-selected the relevant text before you run the right Keyboard shortcut for your operating system (see [Keyboard Shortcuts](#keyboard-shortcuts) above).
 
 ## Extension Settings
 
@@ -39,6 +39,24 @@ This extension contributes the following settings:
 ```
 
 The example above would copy all the instances of `foo` with `bar` before moving the copied contents into the system clipboard.
+
+## Installation
+
+There are lots of different ways you can install this extension, pick the one that feels the best:
+
+1. **Online**: You can install directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=radiovisual.vscode-copy-with-replace)
+2. **In the VSCode Extensions Panel** You can search _`"Copy with Replace"`_ and then click the "Install" button
+3. **In your terminal**: You can run the following code:
+
+```
+  code --install-extension radiovisual.vscode-copy-with-replace
+```
+
+4. **VSCode Quick Open**: You can also install in VS Code: Launch VSCode Quick Open (Ctrl+P), paste the following command, and press Enter.
+
+```
+ext install esbenp.prettier-vscode
+```
 
 ## Testing and Contributing to the Extension
 
@@ -67,4 +85,4 @@ Thank you for your interest in contributing to the "copy-with-replace" extension
 
 ---
 
-:rainbow: :unicorn:
+🦄 🌈

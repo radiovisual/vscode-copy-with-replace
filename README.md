@@ -1,5 +1,5 @@
-<div align="center" style="padding:25px;text-align:center;">
-  <img style="display:block;margin:0 auto;padding:10px" src="images/icon.png" width="200" height="auto" />
+<div align="center" style="padding:25px;text-align:center;color:white;background-color:#672367">
+  <img style="display:block;margin:0 auto;padding:10px" src="https://github.com/radiovisual/vscode-copy-with-replace/blob/main/images/icon.png?raw=true" width="200" height="auto" alt="Extension logo" />
   <h2>Copy with Replace</h2>
   <p>A VS Code Extension to replace specific text snippets before copying to the clipboard.</p>
 </div>

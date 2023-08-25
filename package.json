@@ -2,15 +2,22 @@
   "name": "vscode-copy-with-replace",
   "displayName": "Copy with Replace",
   "description": "Auto-replace specific strings in your source code before copying to the clipboard",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": "https://github.com/radiovisual/vscode-copy-with-replace",
   "bugs": {
     "url": "https://github.com/radiovisual/vscode-copy-with-replace"
   },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "node ./test/runTest.js",
+    "package": "vsce package",
+    "publish": "yarn run test && yarn run package && vsce publish"
+  },
   "publisher": "radiovisual",
   "icon": "images/icon.png",
   "galleryBanner": {
-    "color": "#ff3773",
+    "color": "#672367",
     "theme": "dark"
   },
   "preview": true,
@@ -76,11 +83,6 @@
         "when": "editorTextFocus"
       }
     ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "yarn run lint",
-    "test": "node ./test/runTest.js"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",

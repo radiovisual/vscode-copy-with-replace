@@ -12,6 +12,9 @@
     "color": "#ff3773",
     "theme": "dark"
   },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "engines": {
     "vscode": "^1.77.0"
   },

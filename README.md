@@ -4,6 +4,8 @@
   <p>A VS Code Extension to replace specific text snippets before copying to the clipboard.</p>
 </div>
 
+<br />
+
 ## Features
 
 The "copy-with-replace" extension provides a single command to copy the contents of the currently opened file to the clipboard while replacing the specified strings.

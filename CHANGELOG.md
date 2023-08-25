@@ -6,4 +6,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+- Initial commits, testing
+
+## [0.0.1] 2023-08-25
+
+## [0.1.0] 2023-08-25
+
+### Fixed
+
+- unit tests
+- various manifest tweaks

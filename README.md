@@ -13,6 +13,14 @@ The "copy-with-replace" extension provides a single command to copy the contents
 - **For use on Windows & Linux**: <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd>
 - **For use on macOS**: <kbd>CMD</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd>
 
+## Installation
+
+You can either install directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=radiovisual.vscode-copy-with-replace), or search _`"Copy with Replace"`_ in the VSCode extensions panel, or run the following code in your terminal:
+
+```
+$ code --install-extension radiovisual.vscode-copy-with-replace
+```
+
 ## Extension Settings
 
 This extension contributes the following settings:

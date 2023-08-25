@@ -1,0 +1,78 @@
+{
+  "name": "vscode-copy-with-replace",
+  "displayName": "Copy with Replace",
+  "description": "Auto-replace specific strings in your source code before copying to the clipboard",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.copyWithReplace"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Copy with Replace",
+      "properties": {
+        "copyWithReplace.replacements": {
+          "type": "array",
+          "description": "Array of search and replace strings",
+          "items": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "description": "The search string or regex pattern"
+              },
+              "replace": {
+                "type": "string",
+                "description": "The replacement string"
+              }
+            },
+            "required": [
+              "search",
+              "replace"
+            ]
+          },
+          "default": []
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "copy-with-replace.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.copyWithReplace",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.77.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.36.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "sinon": "^15.0.3"
+  }
+}

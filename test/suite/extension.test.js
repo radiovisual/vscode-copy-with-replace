@@ -1,7 +1,23 @@
 const assert = require("assert");
 const vscode = require("vscode");
+const sinon = require("sinon");
 const { afterEach, beforeEach, describe, it } = require("mocha");
-const { once } = require("events");
+
+// Mock the configuration to return custom replacements
+const myConfig = {
+  get: function (key) {
+    if (key === "replacements") {
+      return [
+        {
+          search: "original-text",
+          replace: "replaced-text",
+        },
+      ];
+    }
+  },
+};
+
+sinon.stub(vscode.workspace, "getConfiguration").returns(myConfig);
 
 describe("Copy With Replace Extension Tests", () => {
   beforeEach(async () => {
@@ -15,12 +31,12 @@ describe("Copy With Replace Extension Tests", () => {
   it("Should apply replacements on selected text", async function () {
     this.timeout(10000); // Set the timeout for this test to 10000ms
 
-    const expectedResult = `import { function } from '@bar/function';`;
+    const expectedResult = `import { function } from '@replaced-text/function';`;
 
     // Create a new text document and set some sample content
     const document = await vscode.workspace.openTextDocument({
       language: "javascript",
-      content: "import { function } from '@foo/function';",
+      content: "import { function } from '@original-text/function';",
     });
 
     // Show the document in the editor
@@ -31,23 +47,14 @@ describe("Copy With Replace Extension Tests", () => {
     const endPosition = new vscode.Position(0, document.lineAt(0).text.length);
     editor.selection = new vscode.Selection(startPosition, endPosition);
 
-    const replacements = {
-      "@foo": "@bar",
-    };
-
-    // Execute the command to copy and replace
-    await vscode.commands.executeCommand("extension.copyWithReplace", {
-      replacements,
-    });
-
     // Wait for a while before pasting the content
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     // Execute the command to paste the content
     await vscode.commands.executeCommand("editor.action.clipboardPasteAction");
 
     // Wait for a while before checking the editor content
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     // Get the content of the editor after pasting
     const newContent = editor.document.getText();

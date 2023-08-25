@@ -7,18 +7,20 @@
   "bugs": {
     "url": "https://github.com/radiovisual/vscode-copy-with-replace"
   },
+  "publisher": "Michael Wuergler",
   "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#ff3773",
     "theme": "dark"
   },
+  "preview": true,
   "activationEvents": [
     "onStartupFinished"
   ],
   "engines": {
     "vscode": "^1.77.0"
   },
-  "license": "SEE LICENSE IN LICENSE file",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "author": {
     "name": "Michael Wuergler",
     "email": "wuergler@gmail.com",
@@ -78,9 +80,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "yarn run lint",
-    "test": "node ./test/runTest.js",
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+    "test": "node ./test/runTest.js"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
@@ -92,7 +92,8 @@
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "sinon": "^15.2.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vscode": "^1.1.37"
   },
   "keywords": [
     "vscode",

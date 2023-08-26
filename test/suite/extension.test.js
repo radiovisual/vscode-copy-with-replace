@@ -53,13 +53,13 @@ describe('Copy With Replace Extension Tests', () => {
     await vscode.commands.executeCommand('extension.copyWithReplace');
 
     // Wait for a while before pasting the content
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     // Execute the command to paste the content
     await vscode.commands.executeCommand('editor.action.clipboardPasteAction');
 
     // Wait for a while before checking the editor content
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     // Get the content of the editor after pasting
     const newContent = editor.document.getText();

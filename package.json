@@ -22,7 +22,8 @@
   "preview": true,
   "packageManager": "pnpm@8.7.0",
   "engines": {
-    "vscode": "^1.77.0"
+    "vscode": "^1.77.0",
+    "node": "^14.18.0 || >=16.0.0"
   },
   "main": "./extension.js",
   "keywords": [
@@ -123,3 +124,4 @@
     "ui"
   ]
 }
+

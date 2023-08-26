@@ -64,7 +64,7 @@ If you want to test or contribute to the "copy-with-replace" extension, follow t
 
 1. Clone the repository or download the source code of the extension.
 2. Navigate to the extension's directory in your terminal or command prompt.
-3. Run npm install to install the required dependencies.
+3. Run yarn install to install the required dependencies.
 4. Open the extension's folder in Visual Studio Code.
 5. Press F5 to launch the Extension Development Host. This opens a new window with the extension loaded, allowing you to test it.
 6. To run the tests, press Ctrl+Shift+P (or Cmd+Shift+P on macOS) to open the Command Palette, then search for and select "Tasks: Run Test Task". The tests should pass, and you'll see a message in the terminal indicating the results.

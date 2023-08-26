@@ -10,23 +10,22 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2
-
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: pnpm
+          node-version: 16.x
 
       - name: Install Dependencies
-        run: pnpm install
+        run: yarn
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1
-        with:
-          commit: 'chore: release vscode-copy-with-replace'
-          title: 'chore: release vscode-copy-with-replace'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish
+        run: yarn publish

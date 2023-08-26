@@ -8,29 +8,24 @@ on:
 
 jobs:
   ci:
-    name: Lint and Test on Node ${{ matrix.node-version }}
+    name: Lint and Test on Node 16
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
-          - 14
-          - 16
           - 18
           - 20
 
     steps:
       - uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js 16.x
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
+          node-version: 16.x
 
-      - name: Install
-        run: pnpm install
+      - name: Install Dependencies
+        run: yarn
 
       - name: Test
-        run: pnpm test
+        run: yarn run test

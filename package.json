@@ -20,7 +20,7 @@
   "publisher": "radiovisual",
   "license": "SEE LICENSE IN LICENSE.txt",
   "preview": true,
-  "packageManager": "pnpm@8.7.0",
+  "packageManager": "yarn@1.22.19",
   "engines": {
     "vscode": "^1.77.0",
     "node": "^14.18.0 || >=16.0.0"
@@ -35,15 +35,15 @@
     "replace"
   ],
   "scripts": {
-    "format": "prettier --write . && pnpm lint --fix",
+    "format": "prettier --write . && yarn lint --fix",
     "lint": "eslint . --cache -f friendly --max-warnings 10",
     "package": "vsce package",
     "prepare": "simple-git-hooks",
-    "prerelease": "pnpm format && pnpm test",
+    "prerelease": "yarn format && yarn test",
     "pretest": "yarn run lint",
     "publish": "yarn run test && yarn run package && vsce publish",
     "release": "changeset publish",
-    "test": "pnpm lint && node ./test/runTest.js"
+    "test": "yarn lint && node ./test/runTest.js"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",

@@ -127,17 +127,6 @@
   "extensionKind": [
     "ui"
   ],
-  "lint-staged": {
-    "*.{ts,js,tsx,jsx}": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.md": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint -e"

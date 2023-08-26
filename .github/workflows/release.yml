@@ -3,7 +3,11 @@ name: Release
 on:
   push:
     branches:
-      - main
+    - main
+  release:
+    types:
+    - created
+
 
 jobs:
   release:
@@ -29,3 +33,10 @@ jobs:
 
       - name: Publish
         run: yarn publish
+
+      - name: Publish
+        if: success() && startsWith(github.ref, 'refs/tags/')
+        run: npm run deploy
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+

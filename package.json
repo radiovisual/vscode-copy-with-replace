@@ -43,15 +43,18 @@
     "pretest": "yarn run lint",
     "publish": "yarn run test && yarn run package && vsce publish",
     "release": "changeset publish",
-    "test": "yarn lint && node ./test/runTest.js"
+    "test": "node ./test/runTest.js",
+    "deploy": "vsce publish --yarn"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/cz-commitlint": "^17.7.1",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.77.0",
     "@vscode/test-electron": "^2.3.0",
+    "commitlint": "^17.7.1",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-formatter-friendly": "^7.0.0",

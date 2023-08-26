@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ci:
+    name: Lint and Test on Node 16
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node-version:
+          - 18
+          - 20
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Lint
+        run: yarn run lint
+
+      - name: Run headless test
+        run: xvfb-run -a npm test
+        if: runner.os == 'Linux'
+      - run: npm run test
+        if: runner.os != 'Linux'

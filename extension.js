@@ -1,4 +1,4 @@
-const vscode = require("vscode");
+const vscode = require('vscode');
 
 async function copyWithReplace() {
   const editor = vscode.window.activeTextEditor;
@@ -12,15 +12,15 @@ async function copyWithReplace() {
 
   if (!hasSelection) {
     vscode.window.showInformationMessage(
-      "Please select text to copy with replacements"
+      'Please select text to copy with replacements',
     );
     return;
   }
 
   const text = document.getText(selection);
 
-  const config = vscode.workspace.getConfiguration("copyWithReplace");
-  const replacements = config.get("replacements", []);
+  const config = vscode.workspace.getConfiguration('copyWithReplace');
+  const replacements = config.get('replacements', []);
 
   let modifiedText = text;
 
@@ -29,13 +29,13 @@ async function copyWithReplace() {
   }
 
   await vscode.env.clipboard.writeText(modifiedText);
-  vscode.window.showInformationMessage("Copied with replacements");
+  vscode.window.showInformationMessage('Copied with replacements');
 }
 
 function activate(context) {
   let disposable = vscode.commands.registerCommand(
-    "extension.copyWithReplace",
-    copyWithReplace
+    'extension.copyWithReplace',
+    copyWithReplace,
   );
 
   context.subscriptions.push(disposable);

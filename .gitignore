@@ -1,4 +1,7 @@
 node_modules
-.vscode-test/
+.vscode
+.vscode-test
 *.vsix
-yarn-lock.json
+package-lock.json
+*.log
+.*cache

@@ -2,3 +2,9 @@ node_modules
 .vscode-test/
 *.vsix
 yarn-lock.json
+package-lock.json
+*.log
+.*cache
+.yarn/*
+!.yarn/plugins
+!.yarn/releases

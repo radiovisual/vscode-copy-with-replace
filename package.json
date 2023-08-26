@@ -1,46 +1,81 @@
 {
   "name": "vscode-copy-with-replace",
+  "version": "0.1.0",
   "displayName": "Copy with Replace",
   "description": "Auto-replace specific strings in your source code before copying to the clipboard",
-  "version": "0.1.0",
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
   "repository": "https://github.com/radiovisual/vscode-copy-with-replace",
+  "homepage": "https://github.com/radiovisual/vscode-copy-with-replace/blob/main/README.md",
   "bugs": {
     "url": "https://github.com/radiovisual/vscode-copy-with-replace"
   },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "yarn run lint",
-    "test": "node ./test/runTest.js",
-    "package": "vsce package",
-    "publish": "yarn run test && yarn run package && vsce publish"
-  },
-  "publisher": "radiovisual",
-  "icon": "images/icon.png",
-  "galleryBanner": {
-    "color": "#672367",
-    "theme": "dark"
-  },
-  "preview": true,
-  "activationEvents": [
-    "onStartupFinished"
-  ],
-  "engines": {
-    "vscode": "^1.77.0"
-  },
-  "license": "SEE LICENSE IN LICENSE.txt",
   "author": {
     "name": "Michael Wuergler",
     "email": "wuergler@gmail.com",
     "url": "https://github.com/radiovisual"
   },
-  "categories": [
-    "Formatters",
-    "Other"
-  ],
-  "extensionKind": [
-    "ui"
-  ],
+  "publisher": "radiovisual",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "preview": true,
+  "packageManager": "pnpm@8.7.0",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
   "main": "./extension.js",
+  "keywords": [
+    "vscode",
+    "extension",
+    "clipboard",
+    "copy",
+    "paste",
+    "replace"
+  ],
+  "scripts": {
+    "format": "prettier --write . && pnpm lint --fix",
+    "lint": "eslint . --cache -f friendly --max-warnings 10",
+    "package": "vsce package",
+    "prepare": "simple-git-hooks",
+    "prerelease": "pnpm format && pnpm test",
+    "pretest": "yarn run lint",
+    "publish": "yarn run test && yarn run package && vsce publish",
+    "release": "changeset publish",
+    "test": "pnpm lint && node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.77.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-formatter-friendly": "^7.0.0",
+    "eslint-mdx": "^2.2.0",
+    "eslint-plugin-eslint-plugin": "^5.1.1",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-n": "^16.0.2",
+    "eslint-plugin-prettier": "^5.0.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.2",
+    "prettier-plugin-pkg": "^0.18.0",
+    "simple-git-hooks": "^2.9.0",
+    "sinon": "^15.2.0",
+    "typescript": "^4.9.5",
+    "vscode": "^1.1.37"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#672367",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
     "configuration": {
       "title": "Copy with Replace",
@@ -84,26 +119,7 @@
       }
     ]
   },
-  "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.77.0",
-    "@vscode/test-electron": "^2.3.0",
-    "eslint": "^8.36.0",
-    "glob": "^8.1.0",
-    "mocha": "^10.2.0",
-    "sinon": "^15.2.0",
-    "typescript": "^4.9.5",
-    "vscode": "^1.1.37"
-  },
-  "keywords": [
-    "vscode",
-    "extension",
-    "clipboard",
-    "copy",
-    "paste",
-    "replace"
-  ],
-  "homepage": "https://github.com/radiovisual/vscode-copy-with-replace/blob/main/README.md"
+  "extensionKind": [
+    "ui"
+  ]
 }

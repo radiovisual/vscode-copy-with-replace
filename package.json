@@ -133,7 +133,7 @@
       "prettier --write",
       "git add"
     ],
-    "*.{md}": [
+    "*.md": [
       "prettier --write",
       "git add"
     ]

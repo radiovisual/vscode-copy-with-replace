@@ -3,11 +3,10 @@ name: Release
 on:
   push:
     branches:
-    - main
+      - main
   release:
     types:
-    - created
-
+      - created
 
 jobs:
   release:
@@ -39,4 +38,3 @@ jobs:
         run: npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-
